@@ -22,10 +22,10 @@ const Home: React.FC = () => {
       <HeroSection />
       <section className="p-8">
         <InfoSection
-          imageSrc="src/assets/img_2.jpg"
+          imageSrc="src/assets/bungidevi.jpg"
           imageAlt="Sample Image"
           title="Jai Maa Bungi Devi"
-          description="The Gorakhnath Temple, a center of spiritual and religious significance, stands as a beacon of devotion and culture. With centuries of history, it offers an enriching experience to all who visit, symbolizing the deep connection between tradition and spirituality."
+          description="Bungi mata Temple is approximately 90 km from Kotdwara, 100 km from Ramnagar   The temple is situated at the top of a hill .The presiding deity of the temple is ma durga.The holy shrine of bungi mata temple is a very popular pilgrimage among the Garhwali people. People who lives in villages they have sacred belief in Bungi mata Temple."
         />
         <InfoSection
           imageSrc="src/assets/img_3.jpg"

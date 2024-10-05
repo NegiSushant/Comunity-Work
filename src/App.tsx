@@ -6,11 +6,13 @@ import Gallery from "./pages/Gallery";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Marquee from "./components/Marquee";
+import DevelopmentNotice from "./components/DevelopmentNotice";
 
 const App: React.FC = () => {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <DevelopmentNotice />
         <Marquee />
         <Header />
         <main className="flex-grow">

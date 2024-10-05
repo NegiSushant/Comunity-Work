@@ -1,103 +1,98 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Footer: React.FC = () => {
-  // State to hold form input values
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  // Handle input changes
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form Data:", formData);
-
-    // You can add form submission logic here, such as sending the data to an API
-    alert("Message sent!");
-    setFormData({ name: "", email: "", message: "" }); // Reset form after submission
-  };
-
   return (
-    <footer className="bg-gray-800 text-white p-8 mt-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Contact Form */}
-        <div>
-          <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Temple Address */}
+          <div className="space-y-4">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium">
-                Name
-              </label>
+              <h3 className="text-xl font-semibold">Kalinka Maa Temple</h3>
+              <p>Vill.:- Ranjeet Moxan, P.O.:- Uniyal Moxan</p>
+              <p>Nainidanda, Dhoomakot</p>
+              <p>Pauri Garhwal, Uttrakhand, 246161</p>
+              {/* <p>Phone: +91 123 456 7890</p> */}
+            </div>
+
+            {/* Map Section */}
+            <div className="w-full h-48 mt-4">
+              {/* Embedded Google Maps iframe */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14279.548205669228!2d79.0200149!3d29.6545502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390a1fba610b77e5%3A0x478dfe736948d772!2sJAI%20MAA%20KALINKA%20MANDIR!5e0!3m2!1sen!2sin!4v1696327498679!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                title="Temple Location"
+              />
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">Contact Us</h3>
+            <form className="space-y-4">
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full p-2 bg-gray-700 text-white rounded-md border border-gray-600 focus:outline-none focus:border-blue-500"
+                className="w-full p-2 text-black rounded"
+                placeholder="Your Name"
               />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium">
-                Email
-              </label>
               <input
                 type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full p-2 bg-gray-700 text-white rounded-md border border-gray-600 focus:outline-none focus:border-blue-500"
+                className="w-full p-2 text-black rounded"
+                placeholder="Your Email"
               />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium">
-                Message
-              </label>
               <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="w-full p-2 h-32 bg-gray-700 text-white rounded-md border border-gray-600 focus:outline-none focus:border-blue-500"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition duration-300"
-            >
-              Send Message
-            </button>
-          </form>
+                className="w-full p-2 text-black rounded"
+                placeholder="Your Message"
+                rows={3}
+              />
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition duration-300"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="/" className="hover:underline">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/about" className="hover:underline">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="/gallery" className="hover:underline">
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="hover:underline">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        {/* Footer Info */}
-        <div className="text-center md:text-left">
-          <h3 className="text-xl font-bold mb-4">Kalinka Mandir</h3>
-          <p className="mb-0">Village: Ranjeet Moxan, P.O.: Uniyal Moxan</p>
-          <p className="mb-0">Nainidanda, Dhoomakot</p>
-          <p className="mb-0">Pauri Garhwal, Uttarakhand, 246161</p>
-          <p>Email: negisingh2021@gmail.com</p>
-          <p>Phone: +123 456 7890</p>
+        {/* Copyright Section */}
+        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-gray-400">
+          <p>
+            &copy; {new Date().getFullYear()} KalinkaMaaTemple. All Rights
+            Reserved.
+          </p>
         </div>
-      </div>
-      <div className="text-center mt-8">
-        <p>&copy; 2024 JaiKalinkaMaa. All rights reserved.</p>
       </div>
     </footer>
   );
