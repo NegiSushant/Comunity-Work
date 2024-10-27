@@ -1,117 +1,64 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About: React.FC = () => {
   return (
-    <section className="min-h-screen bg-gray-100 text-gray-900 py-12">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Introduction Section */}
-        <div className="text-center">
-          <h1 className="text-5xl font-bold text-gray-800 mb-6">
-            Hello, I'm [Sushant Singh Negi]
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto text-justify">
-            I'm a [Software Developer] specializing in building beautiful,
-            responsive web applications. I have a passion for creating sleek and
-            user-friendly experiences.
-          </p>
-        </div>
-
-        {/* Image and Bio Section */}
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-between">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/2 text-center md:text-left">
-            <img
-              src="https://media.licdn.com/dms/image/v2/D5603AQGlG_ZczLD-8Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726897221169?e=1733356800&v=beta&t=A5y0Xgnl2tNrNRRmYUi3iuW-jsJudu1IEry8FsWJHzM"
-              alt="Profile"
-              className="rounded-full mx-auto md:mx-0 h-80 w-80 object-cover border-4 border-gray-300 shadow-lg"
-            />
-          </div>
-
-          {/* Bio Description */}
-          <div className="mt-8 md:mt-0 md:w-1/2">
-            <h2 className="text-3xl font-bold mb-4">About Me</h2>
-            <p className="text-lg text-justify text-gray-700 leading-relaxed mb-4">
-              I'm passionate about crafting exceptional digital experiences.
-              Over the years, I’ve worked with multiple technologies to deliver
-              intuitive web applications. I love to explore new technologies and
-              stay up-to-date with the latest advancements in web development.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              In my free time, you’ll find me [your hobbies or activities] or
-              working on side projects. I thrive on challenges and am always
-              eager to learn new skills and push my boundaries.
-            </p>
-          </div>
-        </div>
-
-        {/* Skills Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-6">My Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">JavaScript</p>
-            </div>
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">React.js</p>
-            </div>
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">TypeScript</p>
-            </div>
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">Tailwind CSS</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Achievements Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-6">Achievements</h2>
-          <ul className="space-y-4">
-            <li className="text-lg text-gray-700">
-              🎉 Developed a full-fledged web app used by thousands of users.
-            </li>
-            <li className="text-lg text-gray-700">
-              🎉 Contributed to open-source projects in the developer community.
-            </li>
-            <li className="text-lg text-gray-700">
-              🎉 Built and deployed scalable applications using modern
-              technologies.
-            </li>
-          </ul>
-        </div>
-
-        {/* Links to Profiles */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold mb-4">Find me on</h2>
-          <div className="flex justify-center space-x-8">
-            <a
-              href="https://github.com/NegiSushant"
-              className="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer" // Improves security
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sushant-singh-negi-4382b4243/"
-              className="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer" // Improves security
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://x.com/Negi25_"
-              className="text-blue-600 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer" // Improves security
-            >
-              Twitter
-            </a>
-          </div>
-        </div>
+    <div className="flex flex-col md:flex-row container mx-auto p-4 gap-8">
+      {/* Left Sidebar for About Links */}
+      <div className="w-full md:w-1/3 bg-blue-100 p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl font-bold mb-4 text-blue-700">
+          About
+        </h2>
+        <ul className="space-y-4 text-blue-700 font-medium">
+          <li>
+            <Link to="/about/community" className="hover:text-blue-500">
+              About Community 
+            </Link>
+          </li>
+          <li>
+            <Link to="/about/panditji" className="hover:text-blue-500">
+              About Pandit Ji
+            </Link>
+          </li>
+          <li>
+            <Link to="/about/village" className="hover:text-blue-500">
+              About Village
+            </Link>
+          </li>
+          <li>
+            <Link to="/about/developer" className="hover:text-blue-500">
+              About Developer
+            </Link>
+          </li>
+        </ul>
       </div>
-    </section>
+
+      {/* Right Content Section for About Us and Vision */}
+      <div className="w-full md:w-2/3 space-y-8">
+        {/* About Us Section */}
+        <section className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
+          <p className="text-gray-600 leading-relaxed">
+            We are dedicated to preserving the heritage and traditions of our
+            community. Our temple has been a cornerstone of spiritual and
+            cultural activities, fostering a deep sense of belonging among
+            members.
+          </p>
+        </section>
+
+        {/* Our Vision Section */}
+        <section className="bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Vision</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Our vision is to sustain and promote our cultural heritage, while
+            also reaching out to the younger generation to ensure that our
+            customs and values thrive for years to come. We believe in building
+            a united community that upholds these principles and extends the
+            spirit of kinship.
+          </p>
+        </section>
+      </div>
+    </div>
   );
 };
 

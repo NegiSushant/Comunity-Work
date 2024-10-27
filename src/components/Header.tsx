@@ -1,18 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import SideMenu from "./SideMenu";
+import DropdownMenu from "./DropDown";
 
 const Header: React.FC = () => {
-  return (
-    <header className="bg-orange-500 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-lg font-bold">Jai Kalinka Maa</h1>
-        <nav>
-          <ul className="flex space-x-4 font-serif">
-            <li><Link to="/" className="hover:text-gray-200">Home</Link></li>
-            <li><Link to="/about" className="hover:text-gray-200">About</Link></li>
-            <li><Link to="/gallery" className="hover:text-gray-200">Gallery</Link></li>
+  const aboutItems = [
+    { label: "About Community", path: "/about/community" },
+    { label: "About Pandit Ji", path: "/about/panditji" },
+    { label: "About Village", path: "/about/village" },
+    { label: "About Developer", path: "/about/developer" },
+  ];
 
-          </ul>
+  const supportItems = [
+    { label: "Support Community", path: "/support/community" },
+    { label: "Organizing Events", path: "/support/events" },
+    { label: "Support Developer", path: "/support/developer" },
+  ];
+
+  return (
+    <header className="bg-orange-600 text-white shadow-lg">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <div className="text-2xl font-bold">
+          <Link to="/">Jai Mata Di</Link>
+        </div>
+
+        {/* Hamburger Menu (Side Menu for small screens) */}
+        <SideMenu  />
+
+        {/* Navbar for larger screens */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="hover:text-gray-300">
+            Home
+          </Link>
+
+          {/* About Dropdown */}
+          <DropdownMenu title="About" items={aboutItems} />
+
+          {/* Support Us Dropdown */}
+          <DropdownMenu title="Support" items={supportItems} />
+
+          <Link to="/gallery" className="hover:text-gray-300">
+            Gallery
+          </Link>
         </nav>
       </div>
     </header>
