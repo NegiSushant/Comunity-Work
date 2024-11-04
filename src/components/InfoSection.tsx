@@ -34,7 +34,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
         {/* Description Section */}
         <div className="lg:w-1/2 w-full text-left">
           <h2 className="text-4xl font-bold mb-6">{title}</h2>
-          <p className="text-gray-700 text-lg leading-relaxed text-justify">
+          <p className="text-gray-700 text-lg leading-relaxed text-justify w-fit ">
             {description}
           </p>
         </div>

@@ -19,7 +19,7 @@ const SupportDeveloper: React.FC = () => {
     }
 
     setError("");
-    window.location.href = `mailto:abc@gmail.com?subject=How to Support&body=Hello, my name is ${name}. I am interested in supporting the developer.`;
+    window.location.href = `mailto:negisingh2021@gmail.com?subject=How to Support&body=Hello, my name is ${name}. I am interested in supporting the developer.`;
   };
 
   return (
