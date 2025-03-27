@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 interface InfoSectionProps {
   imageSrc: string;
@@ -15,6 +15,16 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   description,
   reverse,
 }) => {
+  const textRef = useRef<HTMLDivElement>(null);
+  const [textHeight, setTextHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Calculate and update the text container's height
+    if (textRef.current) {
+      setTextHeight(textRef.current.offsetHeight);
+    }
+  }, [description]);
+
   return (
     <div className="container mx-auto py-12 px-4">
       <div
@@ -23,18 +33,23 @@ const InfoSection: React.FC<InfoSectionProps> = ({
         } items-center lg:items-start lg:space-x-8`}
       >
         {/* Image Section */}
-        <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
+        <div
+          className="lg:w-1/2 w-full mb-6 lg:mb-0 flex justify-center items-center"
+          style={{
+            height: textHeight ? `${textHeight}px` : "auto", // Match image height with text height
+          }}
+        >
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="w-full h-auto object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out" // Stylish hover effect
+            className="w-full h-full object-contain rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
           />
         </div>
 
         {/* Description Section */}
-        <div className="lg:w-1/2 w-full text-left">
+        <div ref={textRef} className="lg:w-1/2 w-full text-left">
           <h2 className="text-4xl font-bold mb-6">{title}</h2>
-          <p className="text-gray-700 text-lg leading-relaxed text-justify w-fit ">
+          <p className="text-gray-700 text-lg leading-relaxed text-justify">
             {description}
           </p>
         </div>

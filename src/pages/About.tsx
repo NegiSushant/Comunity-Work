@@ -5,7 +5,7 @@ const About: React.FC = () => {
   return (
     <div className="flex flex-col md:flex-row container mx-auto p-4 gap-8">
       {/* Left Sidebar for About Links */}
-      <div className="w-full md:w-1/3 bg-blue-100 p-6 rounded-lg shadow-md">
+      <div className="w-full md:w-1/3 bg-blue-100 p-6 rounded-lg shadow-md sticky top-0 h-screen">
         <h2 className="text-2xl font-bold mb-4 text-blue-700">
           About
         </h2>
