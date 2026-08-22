@@ -1,117 +1,159 @@
 import React from "react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 
 const AboutDev: React.FC = () => {
+  const skills = [
+    "JavaScript",
+    "TypeScript",
+    "React.js",
+    "Tailwind CSS",
+    "Node.js",
+    "Gen AI",
+    "Agentic AI",
+    "Autogen",
+  ];
+
+  const achievements = [
+    "Developed a full-fledged web application used by thousands of users.",
+    "Contributed to open-source projects in the developer community.",
+    "Built and deployed scalable applications using modern technologies.",
+    "Created and deployed intelligent Chatbots.",
+    "Actively working with Autogen (Agentic AI framework).",
+  ];
+
   return (
-    <section className="min-h-screen bg-gray-100 text-gray-900 py-12">
-      <div className="container mx-auto px-4 lg:px-8">
-        {/* Introduction Section */}
-        <div className="text-center">
-          <h1 className="text-5xl font-bold text-gray-800 mb-6">
-            Hello, I'm [Sushant Singh Negi]
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto text-justify">
-            I'm a [Software Developer] specializing in building beautiful,
-            responsive web applications. I have a passion for creating sleek and
-            user-friendly experiences.
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
+      {/* ===== Hero Section (Clean & Professional) ===== */}
+      <section className="relative bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="flex flex-col items-center text-center">
+            {/* Profile Image */}
+            <div className="relative mb-6">
+              <img
+                src="/assets/devImage.jpeg"
+                alt="Sushant Singh Negi"
+                className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-orange-500 shadow-xl"
+              />
+            </div>
 
-        {/* Image and Bio Section */}
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-between">
-          {/* Profile Image */}
-          <div className="w-full md:w-1/2 text-center md:text-left">
-            <img
-              src="https://media.licdn.com/dms/image/v2/D5603AQGlG_ZczLD-8Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1726897221169?e=1733356800&v=beta&t=A5y0Xgnl2tNrNRRmYUi3iuW-jsJudu1IEry8FsWJHzM"
-              alt="Profile"
-              className="rounded-full mx-auto md:mx-0 h-80 w-80 object-cover border-4 border-gray-300 shadow-lg"
-            />
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
+              Sushant Singh Negi
+            </h1>
+
+            <p className="text-xl text-orange-600 dark:text-orange-400 font-medium mb-6">
+              Software Developer Engineer
+            </p>
+
+            <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              Passionate about building beautiful, responsive, and meaningful
+              web applications. I love creating sleek user experiences and
+              exploring the latest in AI and modern web technologies.
+            </p>
           </div>
+        </div>
+      </section>
 
-          {/* Bio Description */}
-          <div className="mt-8 md:mt-0 md:w-1/2">
-            <h2 className="text-3xl font-bold mb-4">About Me</h2>
-            <p className="text-lg text-justify text-gray-700 leading-relaxed mb-4">
+      {/* ===== Main Content ===== */}
+      <div className="container mx-auto px-4 py-16 max-w-5xl">
+        {/* About Me */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+            About Me
+          </h2>
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-8 md:p-10 border border-gray-100 dark:border-gray-800">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-5 text-justify">
               I'm passionate about crafting exceptional digital experiences.
               Over the years, I’ve worked with multiple technologies to deliver
-              intuitive web applications. I love to explore new technologies and
-              stay up-to-date with the latest advancements in web development.
+              intuitive and high-performance web applications. I love exploring
+              new tools and staying up-to-date with the latest advancements in
+              web development and artificial intelligence.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              In my free time, you’ll find me [your hobbies or activities] or
-              working on side projects. I thrive on challenges and am always
-              eager to learn new skills and push my boundaries.
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+              In my free time, you’ll find me learning new technologies, working
+              on side projects, or contributing to open-source. I thrive on
+              challenges and am always eager to push my boundaries.
             </p>
           </div>
-        </div>
+        </section>
 
-        {/* Skills Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-6">My Skills</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">JavaScript</p>
-            </div>
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">React.js</p>
-            </div>
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">TypeScript</p>
-            </div>
-            <div className="bg-white shadow-lg p-6 text-center rounded-lg">
-              <p className="text-xl font-semibold">Tailwind CSS</p>
-            </div>
+        {/* Skills */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+            My Skills
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {skills.map((skill) => (
+              <div
+                key={skill}
+                className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl py-5 px-4 text-center shadow-sm hover:shadow-md hover:border-orange-400 dark:hover:border-orange-500 transition-all duration-300"
+              >
+                <span className="font-semibold text-gray-800 dark:text-gray-200">
+                  {skill}
+                </span>
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
 
-        {/* Achievements Section */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-center mb-6">Achievements</h2>
-          <ul className="space-y-4">
-            <li className="text-lg text-gray-700">
-              🎉 Developed a full-fledged web app used by thousands of users.
-            </li>
-            <li className="text-lg text-gray-700">
-              🎉 Contributed to open-source projects in the developer community.
-            </li>
-            <li className="text-lg text-gray-700">
-              🎉 Built and deployed scalable applications using modern
-              technologies.
-            </li>
-          </ul>
-        </div>
+        {/* Achievements */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+            Achievements
+          </h2>
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-8 border border-gray-100 dark:border-gray-800">
+            <ul className="space-y-4">
+              {achievements.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-start gap-3 text-gray-700 dark:text-gray-300"
+                >
+                  <span className="text-orange-500 font-bold text-xl mt-0.5">
+                    ▹
+                  </span>
+                  <span className="text-lg leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
-        {/* Links to Profiles */}
-        <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold mb-4">Find me on</h2>
-          <div className="flex justify-center space-x-8">
+        {/* Social Links */}
+        <section className="text-center pb-8">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+            Find Me On
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
             <a
               href="https://github.com/NegiSushant"
-              className="text-blue-600 hover:underline"
               target="_blank"
-              rel="noopener noreferrer" // Improves security
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
             >
+              <Github className="w-5 h-5" />
               GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/sushant-singh-negi-4382b4243/"
-              className="text-blue-600 hover:underline"
               target="_blank"
-              rel="noopener noreferrer" // Improves security
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
             >
+              <Linkedin className="w-5 h-5" />
               LinkedIn
             </a>
             <a
               href="https://x.com/Negi25_"
-              className="text-blue-600 hover:underline"
               target="_blank"
-              rel="noopener noreferrer" // Improves security
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg"
             >
+              <Twitter className="w-5 h-5" />
               Twitter
             </a>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
   );
 };
 

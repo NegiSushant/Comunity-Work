@@ -3,16 +3,16 @@ import Modal from "react-modal";
 
 // Sample images array
 const images = [
-  { id: 1, src: "src/assets/img1.jpg", alt: "Image 1" },
-  { id: 2, src: "src/assets/img_2.jpg", alt: "Image 2" },
-  { id: 3, src: "src/assets/img_3.jpg", alt: "Image 3" },
-  { id: 4, src: "src/assets/img_4.jpg", alt: "Image 4" },
-  { id: 5, src: "src/assets/img_5.jpg", alt: "Image 5" },
-  { id: 6, src: "src/assets/img_6.jpg", alt: "Image 6" },
-  { id: 7, src: "src/assets/img_7.jpg", alt: "Image 7" },
+  { id: 1, src: "assets/img1.jpg", alt: "Image 1" },
+  { id: 2, src: "assets/img_2.jpg", alt: "Image 2" },
+  { id: 3, src: "assets/img_3.jpg", alt: "Image 3" },
+  { id: 4, src: "assets/img_4.jpg", alt: "Image 4" },
+  { id: 5, src: "assets/img_5.jpg", alt: "Image 5" },
+  { id: 6, src: "assets/img_6.jpg", alt: "Image 6" },
+  { id: 7, src: "assets/img_7.jpg", alt: "Image 7" },
 ];
 
-Modal.setAppElement("#root"); // To prevent screen readers from reading background content
+Modal.setAppElement("#root");
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);

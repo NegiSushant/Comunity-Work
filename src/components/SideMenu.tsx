@@ -1,111 +1,155 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const SideMenu: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [openSection, setOpenSection] = useState<string | null>(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
+  const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => {
-    setIsMenuOpen(false);
+    setIsOpen(false);
+    setOpenSection(null);
   };
+
+  const toggleSection = (section: string) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
+  const aboutItems = [
+    { label: "About Community", path: "/about/community" },
+    // { label: "About Pandit Ji", path: "/about/panditji" },
+    { label: "About Village", path: "/about/village" },
+    { label: "About Developer", path: "/about/developer" },
+  ];
+
+  const supportItems = [
+    { label: "Support Community", path: "/support/community" },
+    { label: "Organizing Events", path: "/support/events" },
+    { label: "Support Developer", path: "/support/developer" },
+  ];
 
   return (
-    <div>
-      {/* Hamburger button to toggle the menu */}
+    <>
+      {/* Hamburger Button */}
       <button
-        className="text-white block md:hidden"
         onClick={toggleMenu}
-        aria-label="Menu"
+        className="p-2 rounded-lg hover:bg-orange-700/40 transition-colors md:hidden"
+        aria-label="Open menu"
       >
-        <svg
-          className="w-8 h-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
-        </svg>
+        <Menu className="w-7 h-7 text-white" />
       </button>
 
-      {/* Side Menu */}
-      <div
-        className={`fixed top-0 right-0 transform ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out bg-zinc-500 border-blue-500 z-50 w-2/3 max-w-xs h-auto shadow-lg py-4 rounded-l-lg`}
-      >
-        <div className="flex justify-between items-center p-4">
-          <h2 className="text-white text-lg font-bold">Menu</h2>
+      {/* Backdrop */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={closeMenu}
+        />
+      )}
 
-          {/* Stylish close button */}
+      {/* Side Panel */}
+      <div
+        className={`fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white dark:bg-gray-900 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-gray-700">
+          <span className="text-lg font-bold text-orange-600 dark:text-orange-400">
+            Menu
+          </span>
           <button
-            onClick={toggleMenu}
-            className="text-white hover:text-gray-300 focus:outline-none"
-            aria-label="Close Menu"
+            onClick={closeMenu}
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+            aria-label="Close menu"
           >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
+            <X className="w-6 h-6 text-gray-700 dark:text-gray-300" />
           </button>
         </div>
 
-        {/* Menu items */}
-        <nav className="p-4 space-y-4">
+        {/* Navigation Links */}
+        <nav className="px-3 py-4 space-y-1">
+          {/* Home */}
           <Link
             to="/"
-            className="block text-white hover:text-gray-300"
             onClick={closeMenu}
+            className="block px-4 py-3 rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:bg-orange-50 dark:hover:bg-gray-800"
           >
             Home
           </Link>
 
-          {/* About section */}
-          <Link
-            to="/about"
-            className="block text-white hover:text-gray-300"
-            onClick={closeMenu}
-          >
-            About
-          </Link>
+          {/* About Accordion */}
+          <div>
+            <button
+              onClick={() => toggleSection("about")}
+              className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:bg-orange-50 dark:hover:bg-gray-800"
+            >
+              <span>About</span>
+              <ChevronDown
+                className={`w-5 h-5 transition-transform ${
+                  openSection === "about" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
 
-          {/* Support Us section */}
-          <Link
-            to="/support"
-            className="block text-white hover:text-gray-300"
-            onClick={closeMenu}
-          >
-            Support Us
-          </Link>
+            {openSection === "about" && (
+              <div className="ml-4 mt-1 space-y-1 border-l-2 border-orange-200 dark:border-orange-800 pl-3">
+                {aboutItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={closeMenu}
+                    className="block px-3 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-400 rounded-md"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
+          {/* Support Accordion */}
+          <div>
+            <button
+              onClick={() => toggleSection("support")}
+              className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:bg-orange-50 dark:hover:bg-gray-800"
+            >
+              <span>Support</span>
+              <ChevronDown
+                className={`w-5 h-5 transition-transform ${
+                  openSection === "support" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {openSection === "support" && (
+              <div className="ml-4 mt-1 space-y-1 border-l-2 border-orange-200 dark:border-orange-800 pl-3">
+                {supportItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={closeMenu}
+                    className="block px-3 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-400 rounded-md"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Gallery */}
           <Link
             to="/gallery"
-            className="block text-white hover:text-gray-300"
             onClick={closeMenu}
+            className="block px-4 py-3 rounded-lg text-gray-800 dark:text-gray-200 font-medium hover:bg-orange-50 dark:hover:bg-gray-800"
           >
             Gallery
           </Link>
         </nav>
       </div>
-    </div>
+    </>
   );
 };
 
