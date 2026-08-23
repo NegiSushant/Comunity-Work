@@ -131,8 +131,8 @@ const AboutVillage: React.FC = () => {
             </div>
 
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
-              All the population belongs to the Garhwali community.
-              Most families are engaged in agriculture, horticulture, and animal
+              All the population belongs to the Garhwali community. Most
+              families are engaged in agriculture, horticulture, and animal
               husbandry. In recent years, many young people have also moved to
               cities for education and employment while maintaining strong ties
               with their native village.
@@ -152,10 +152,9 @@ const AboutVillage: React.FC = () => {
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-md p-8 border border-gray-100 dark:border-gray-800">
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-justify">
               Ranjeet Moxan comes under the{" "}
-              <strong>Uniyal Moxan Gram Panchayat</strong>
-              (or update with the correct name). The Gram Panchayat is
-              responsible for local governance, development works, and welfare
-              schemes in the following villages:
+              <strong>Ranjeet Moxan or Moxan Bada Gram Panchayat</strong>. The
+              Gram Panchayat is responsible for local governance, development
+              works, and welfare schemes in the following villages:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -185,19 +184,73 @@ const AboutVillage: React.FC = () => {
 
           <div className="space-y-6">
             {/* Current Pradhan */}
-            <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-950/40 dark:to-orange-900/20 rounded-2xl p-8 border border-orange-200 dark:border-orange-800/40">
-              <p className="text-sm font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-wider mb-2">
-                Current Pradhan
-              </p>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                Shri Bharat Singh Bisht
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Tenure: 2025 – Present
-              </p>
-              <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-                Brief introduction about the current Pradhan can be added here.
-              </p>
+            <div className="bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-950/40 dark:to-orange-900/20 rounded-2xl p-6 md:p-8 border border-orange-200 dark:border-orange-800/40">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                {/* Left Side - Photo + Description under it */}
+                <div className="flex-shrink-0 mx-auto md:mx-0 text-center md:text-left">
+                  <img
+                    src="/assets/pradhan.jpeg"
+                    alt="Shri Bharat Singh Bisht"
+                    className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-2xl border-4 border-orange-300 dark:border-orange-600 shadow-lg"
+                  />
+
+                  {/* Description under the image */}
+                  <div className="mt-4">
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                      Shri Bharat Singh Bisht
+                    </h4>
+                    <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mt-1">
+                      Gram Pradhan
+                    </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                      Tenure: 2025 – Present
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Side - Content (Justified) */}
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-orange-600 dark:text-orange-400 uppercase tracking-wider mb-2">
+                    Current Pradhan
+                  </p>
+
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+                    <strong>Bharat Singh Bisht</strong> is the current Gram
+                    Pradhan and holds the distinction of being the{" "}
+                    <strong>
+                      youngest elected Gram Pradhan in the history of the Gram
+                      Sabha
+                    </strong>
+                    . Born and brought up in the village, he has a deep
+                    connection with its people, culture, and development needs.
+                    He completed his schooling from{" "}
+                    <strong>
+                      High School and Intermediate education at J.I.C.
+                      Nainidanda, Pauri Garhwal, Uttarakhand
+                    </strong>
+                    . Having spent his formative years in the village, he
+                    understands the challenges and aspirations of the local
+                    community closely.
+                  </p>
+
+                  <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+                    Bharat Singh Bisht is known as a{" "}
+                    <strong>
+                      hardworking, dedicated, and forward-thinking individual
+                      with a visionary approach
+                    </strong>
+                    . His goal is to take the Gram Sabha to new heights by
+                    focusing on overall development and addressing the essential
+                    needs of the village and its residents. With his energy,
+                    commitment, and forward-thinking, he aspires to build a{" "}
+                    <strong>
+                      progressive, developed, and prosperous Gram Sabha
+                    </strong>
+                    , ensuring better opportunities and facilities for every
+                    section of the community.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Previous Pradhans */}
